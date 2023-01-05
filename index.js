@@ -84,18 +84,15 @@ var finances = [
 ['Nov-2016', 795914],
 ['Dec-2016', 60988],
 ['Jan-2017', 138230],
-['Feb-2017', 671099],
 ['Feb-2017', 671099]
 ];
 
 console.table(finances);
 
 //get the date only
-var months = [];
-
-for (var i=0; i < finances.length; i++){
-    months[i] = finances[i][0].slice();
-}
+var months = finances.map(function(tuple){
+    return tuple[0];
+});
 
 console.table(months);
 
@@ -109,3 +106,22 @@ console.table(monthsUnique);
 
 //total number of months included in the dataset
 console.log(monthsUnique.length);
+
+//get the money only
+var money = finances.map(function(tuple){
+    return tuple[1];
+});
+
+//total profit/losses
+console.table(money);
+var sum = money.reduce((a,b) => a+b, 0);
+console.log('$' + sum); //if positive number that means profit and likewise
+
+
+
+
+
+
+
+
+
