@@ -87,14 +87,16 @@ var finances = [
 ['Feb-2017', 671099]
 ];
 
-console.table(finances);
+// console.log("%cTable of Data", "color:red;")
+// console.table(finances);
+
+console.log("%cFinancial Analysis", "color:red;")
+console.log("%c-----------------------", "color:red;")
 
 //get the date only
 var months = finances.map(function(tuple){
     return tuple[0];
 });
-
-console.table(months);
 
 //removing any duplicates
 function onlyUnique(value, index, self) {
@@ -102,21 +104,19 @@ function onlyUnique(value, index, self) {
 }
 
 var monthsUnique = months.filter(onlyUnique);
-console.table(monthsUnique);
+// console.table(monthsUnique);
 
 //total number of months included in the dataset
-console.log(monthsUnique.length);
+console.log('Total Months: ' + monthsUnique.length);
 
 //get the money only
 var money = finances.map(function(tuple){
     return tuple[1];
 });
 
-console.table(money);
-
 //total profit/losses
 var sum = money.reduce((a,b) => a+b, 0);
-console.log('$' + sum); //if positive number that means profit and likewise
+console.log('Total: $' + sum); //if positive number that means profit and likewise
 
 //get the total change in profits/losses from month to month
 var changes = [];
@@ -124,12 +124,17 @@ for (i=0; i<money.length-1; i++){
     changes[i] = money[i+1] - money[i];
 }
 
-console.table(changes);
-
 //get the average of the changes in profit/losses over the entire period
 var average = changes.reduce((a,b) => a+b, 0) / changes.length;
-console.log('$' + average);
+console.log('Average Change: $' + average.toFixed(2)); //2 decimal places
 
+//get the increase in profits (date and amount) over the entire period
+var max = money.reduce((a, b) => Math.max(a, b), -Infinity);
+console.log('Greatest Increase in Profits: ' + months[money.indexOf(max)] + ' ($' + max +')');
+
+//get the greatest decrease in losses (date and amount) over the entire period
+var min = money.reduce((a, b) => Math.min(a, b));
+console.log('Greatest Decrease in Profits: ' + months[money.indexOf(min)] + ' ($' + min +')');
 
 
 
