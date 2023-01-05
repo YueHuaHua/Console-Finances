@@ -112,10 +112,23 @@ var money = finances.map(function(tuple){
     return tuple[1];
 });
 
-//total profit/losses
 console.table(money);
+
+//total profit/losses
 var sum = money.reduce((a,b) => a+b, 0);
 console.log('$' + sum); //if positive number that means profit and likewise
+
+//get the total change in profits/losses from month to month
+var changes = [];
+for (i=0; i<money.length-1; i++){
+    changes[i] = money[i+1] - money[i];
+}
+
+console.table(changes);
+
+//get the average of the changes in profit/losses over the entire period
+var average = changes.reduce((a,b) => a+b, 0) / changes.length;
+console.log('$' + average);
 
 
 
