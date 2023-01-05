@@ -84,5 +84,28 @@ var finances = [
 ['Nov-2016', 795914],
 ['Dec-2016', 60988],
 ['Jan-2017', 138230],
+['Feb-2017', 671099],
 ['Feb-2017', 671099]
 ];
+
+console.table(finances);
+
+//get the date only
+var months = [];
+
+for (var i=0; i < finances.length; i++){
+    months[i] = finances[i][0].slice();
+}
+
+console.table(months);
+
+//removing any duplicates
+function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+}
+
+var monthsUnique = months.filter(onlyUnique);
+console.table(monthsUnique);
+
+//total number of months included in the dataset
+console.log(monthsUnique.length);
