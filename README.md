@@ -192,6 +192,9 @@ Greatest Decrease in Profits: Sep-2013 ($-2196167)
   ```
 </br>
 
+These numbers can also be compared to the computation in `calculation.xls` file.
+
+
 ## Installation and Deployment
 
 Installation not required, since this is a "plug and play" type of application. The user can simply run it locally by clicking on the `index.html` file and opening in either their default or preferred browser.
