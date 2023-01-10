@@ -193,6 +193,7 @@ Greatest Decrease in Profits: Sep-2013 ($-2196167)
 </br>
 
 These numbers can also be compared to the computation in `calculation.xls` file.
+</br>
 
 
 ## Installation and Deployment
