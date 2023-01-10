@@ -118,25 +118,22 @@ for (let i=0; i<money.length-1; i++){
 }
 
 // get the sum of changes
-var netChanges = 0;
-for(let i=0; i < changes.length; i++){
-    netChanges += changes[i]
-}
+var netChanges = changes.reduce((a,b) => a+b, 0);
 
 //get the average of the changes in profit/losses over the entire period
-var averageChanges = (changes.reduce((a,b) => a+b, 0) / changes.length).toFixed(2); //2 decimal places
+var averageChanges = (netChanges / changes.length).toFixed(2); //2 decimal places
 
 //get the biggest profits
 var maxProfit = money.reduce((a, b) => Math.max(a, b), -Infinity);
 var maxProfitIndex = money.indexOf(maxProfit);
 var maxProfitMonth = months[maxProfitIndex];
 
-//get the biggest profits
+//get the least profits
 var minProfit = money.reduce((a, b) => Math.min(a, b), );
 var minProfitIndex = money.indexOf(minProfit);
 var minProfitMonth = months[minProfitIndex];
 
-//get the increase in profits (date and amount) over the entire period
+//get the greatest increase in profits (date and amount) over the entire period
 var maxChanges = changes.reduce((a, b) => Math.max(a, b), -Infinity);
 var maxChangesIndex = changes.indexOf(maxChanges);
 var maxChangesMonth1 = months[maxChangesIndex];
@@ -160,9 +157,9 @@ analysis = `
 -----------------------
 %cTotal Months: ${totalMonths}
 Total: $${sumProfit}
-Average Changes: ${averageChanges}
-Greatest Increase in Profits: between ${maxChangesMonth1} and ${maxChangesMonth2} ($${maxChanges})
-Greatest Decrease in Profits: between ${minChangesMonth1} and ${minChangesMonth2} ($${minChanges})
+Average Changes: $${averageChanges}
+Greatest Increase in Profits: from ${maxChangesMonth1} to ${maxChangesMonth2} ($${maxChanges})
+Greatest Decrease in Profits: from ${minChangesMonth1} to ${minChangesMonth2} ($${minChanges})
 Biggest Profit: ${maxProfitMonth} ($${maxProfit})
 Smallest Profit: ${minProfitMonth} ($${minProfit})
 `
