@@ -136,14 +136,12 @@ var minProfitMonth = months[minProfitIndex];
 //get the greatest increase in profits (date and amount) over the entire period
 var maxChanges = changes.reduce((a, b) => Math.max(a, b), -Infinity);
 var maxChangesIndex = changes.indexOf(maxChanges);
-var maxChangesMonth1 = months[maxChangesIndex];
-var maxChangesMonth2 = months[maxChangesIndex+1];
+var maxChangesMonth = months[maxChangesIndex+1];
 
 //get the greatest decrease in losses (date and amount) over the entire period
 var minChanges = changes.reduce((a, b) => Math.min(a, b), );
 var minChangesIndex = changes.indexOf(minChanges);
-var minChangesMonth1 = months[minChangesIndex];
-var minChangesMonth2 = months[minChangesIndex+1];
+var minChangesMonth = months[minChangesIndex+1];
 
 //Uncomment these syntax if you wish to see the data
 // console.table(finances);
@@ -158,10 +156,8 @@ analysis = `
 %cTotal Months: ${totalMonths}
 Total: $${sumProfit}
 Average Changes: $${averageChanges}
-Greatest Increase in Profits: from ${maxChangesMonth1} to ${maxChangesMonth2} ($${maxChanges})
-Greatest Decrease in Profits: from ${minChangesMonth1} to ${minChangesMonth2} ($${minChanges})
-Biggest Profit: ${maxProfitMonth} ($${maxProfit})
-Smallest Profit: ${minProfitMonth} ($${minProfit})
+Greatest Increase in Profits: ${maxChangesMonth} ($${maxChanges})
+Greatest Decrease in Profits: ${minChangesMonth} ($${minChanges})
 `
 
 console.log(analysis, "color:red;", "color:white;");
