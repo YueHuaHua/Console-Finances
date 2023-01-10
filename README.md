@@ -132,15 +132,14 @@ While the second one is the greatest change in profit which can be obtained by f
 //get the greatest increase in profits (date and amount) over the entire period
 var maxChanges = changes.reduce((a, b) => Math.max(a, b), -Infinity);
 var maxChangesIndex = changes.indexOf(maxChanges);
-var maxChangesMonth1 = months[maxChangesIndex];
-var maxChangesMonth2 = months[maxChangesIndex+1];
+var maxChangesMonth = months[maxChangesIndex+1];
   ```
 </br>
 
 Output:
 
   ```text
-Greatest Increase in Profits: from Jan-2012 to Feb-2012 ($1926159)
+Greatest Increase in Profits: Feb-2012 ($1926159)
   ```
 </br>
 
@@ -169,19 +168,18 @@ While the second one is the greatest change in loss which can be obtained by fin
 //get the greatest decrease in losses (date and amount) over the entire period
 var minChanges = changes.reduce((a, b) => Math.min(a, b), );
 var minChangesIndex = changes.indexOf(minChanges);
-var minChangesMonth1 = months[minChangesIndex];
-var minChangesMonth2 = months[minChangesIndex+1];
+var minChangesMonth = months[minChangesIndex+1];
   ```
 </br>
 
 Output:
 
   ```text
-Greatest Decrease in Profits: from Aug-2013 to Sep-2013 ($-2196167)
+Greatest Decrease in Profits: Sep-2013 ($-2196167)
   ```
 </br>
 
-### The Greatest Decrease in Profits
+### Code Output
 The obtained result that shows in web console is as the following:
   ```text
 Financial Analysis
@@ -189,10 +187,8 @@ Financial Analysis
 Total Months: 86
 Total: $38382578
 Average Changes: $-2315.12
-Greatest Increase in Profits: from Jan-2012 to Feb-2012 ($1926159)
-Greatest Decrease in Profits: from Aug-2013 to Sep-2013 ($-2196167)
-Biggest Profit: Feb-2012 ($1170593)
-Smallest Profit: Sep-2013 ($-1196225)
+Greatest Increase in Profits: Feb-2012 ($1926159)
+Greatest Decrease in Profits: Sep-2013 ($-2196167)
   ```
 </br>
 
